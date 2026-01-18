@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPM Library Room Booking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="left-header">
+        <img src="upm-logo.png" alt="UPM Logo">
+        <h1>UPM Library Room Booking System</h1>
+    </div>
+    <div class="right-header">
+        <p>Faculty of Computer Science & IT</p>
+    </div>
+</header>
+
+<div class="container">
+    <h2>Login</h2>
+
+    <label>Username</label>
+    <input type="text" id="username">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="error"></p>
+</div>
+
+<script>
+function login() {
+    let u = username.value;
+    let p = password.value;
+    let e = document.getElementById("error");
+
+    if (u === "student" && p === "1234") {
+        window.location.href = "dashboard.html";
+    } else {
+        e.style.color = "red";
+        e.innerText = "Invalid username or password";
+    }
+}
+</script>
+
+</body>
+</html>
