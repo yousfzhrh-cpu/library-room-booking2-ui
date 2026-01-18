@@ -20,30 +20,40 @@
 <div class="container">
     <h2>Room Booking</h2>
 
+    <!-- Students -->
     <label>Student 1</label>
-    <input type="text" id="student1">
+    <input type="text" id="student1" placeholder="Enter student name">
 
     <label>Student 2</label>
-    <input type="text" id="student2">
+    <input type="text" id="student2" placeholder="Enter student name">
 
     <label>Student 3</label>
-    <input type="text" id="student3">
+    <input type="text" id="student3" placeholder="Enter student name">
 
+    <!-- Room -->
     <label>Room</label>
-    <select>
+    <select id="room">
+        <option value="">Select Room</option>
         <option>Room A</option>
         <option>Room B</option>
         <option>Room C</option>
     </select>
 
+    <!-- Date -->
     <label>Date</label>
-    <input type="date">
+    <input type="date" id="date">
 
-    <label>Time</label>
-    <input type="time">
+    <!-- Start & End Time -->
+    <label>Start Time</label>
+    <input type="time" id="startTime">
 
+    <label>End Time</label>
+    <input type="time" id="endTime">
+
+    <!-- Button -->
     <button onclick="validateBooking()">Confirm Booking</button>
 
+    <!-- Message -->
     <p id="bookingMsg"></p>
 
     <a href="dashboard.html">Back to Dashboard</a>
@@ -51,18 +61,35 @@
 
 <script>
 function validateBooking() {
-    let s1 = student1.value.trim();
-    let s2 = student2.value.trim();
-    let s3 = student3.value.trim();
+    let s1 = document.getElementById("student1").value.trim();
+    let s2 = document.getElementById("student2").value.trim();
+    let s3 = document.getElementById("student3").value.trim();
+    let room = document.getElementById("room").value;
+    let date = document.getElementById("date").value;
+    let start = document.getElementById("startTime").value;
+    let end = document.getElementById("endTime").value;
     let msg = document.getElementById("bookingMsg");
 
     if (s1 === "" || s2 === "" || s3 === "") {
         msg.style.color = "red";
-        msg.innerText = "❌ Invalid booking: 3 students are required.";
-    } else {
-        msg.style.color = "green";
-        msg.innerText = "✅ Booking successful.";
+        msg.innerText = "❌ Invalid booking: Minimum 3 students are required.";
+        return;
     }
+
+    if (room === "" || date === "" || start === "" || end === "") {
+        msg.style.color = "red";
+        msg.innerText = "❌ Please complete all booking details.";
+        return;
+    }
+
+    if (end <= start) {
+        msg.style.color = "red";
+        msg.innerText = "❌ End time must be later than start time.";
+        return;
+    }
+
+    msg.style.color = "green";
+    msg.innerText = "✅ Booking successful. Room has been reserved.";
 }
 </script>
 
