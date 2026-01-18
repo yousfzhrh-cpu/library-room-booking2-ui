@@ -1,0 +1,182 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* PAGE LOAD */
+body {
+    margin: 0;
+    background: #f4f4f4;
+    animation: fadeIn 0.8s ease-in;
+}
+
+/* HEADER */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #B11226;
+    color: white;
+    padding: 15px 30px;
+    animation: slideDown 0.7s ease-out;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.left-header img {
+    width: 65px;
+}
+
+.left-header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.right-header {
+    text-align: right;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* CARD */
+.container {
+    background: white;
+    width: 650px;              /* wide like your red square */
+    min-height: 320px;         /* taller to fit content */
+    margin: 70px auto;
+    padding: 40px 50px;        /* space inside like real dashboards */
+    border-radius: 14px;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+    animation: riseUp 0.9s ease;
+}
+
+
+h2 {
+    text-align: center;
+    color: #B11226;
+    margin-bottom: 10px;
+}
+
+/* FORM */
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #B11226;
+    box-shadow: 0 0 6px rgba(177,18,38,0.4);
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    background: #B11226;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 22px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #8e0f1e;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* LINKS */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #B11226;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* MESSAGES */
+#error, #bookingMsg {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 0.4s;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes riseUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== DASHBOARD COLUMN ALIGNMENT FIX ===== */
+
+/* Capacity column (numbers 4, 6, 8) */
+table td:nth-child(2),
+table th:nth-child(2) {
+    padding-left: 25px;   /* move numbers forward */
+    text-align: left;     /* align neatly */
+}
+
+/* ===== DASHBOARD TABLE FULL WIDTH ===== */
+table {
+    width: 100%;               /* fill the container */
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 14px 18px;        /* spread content */
+    text-align: left;
+    font-size: 15px;
+}
+
+table th {
+    background: #f3f3f3;
+    font-weight: bold;
+}
+
+table td:nth-child(2),
+table th:nth-child(2) {
+    text-align: center;        /* capacity column centered */
+}
+
+table td:nth-child(3),
+table th:nth-child(3) {
+    text-align: center;
+}
+
+
