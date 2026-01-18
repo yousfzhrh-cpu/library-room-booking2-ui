@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="left-header">
+        <img src="upm-logo.png" alt="UPM Logo">
+        <h1>UPM Library Room Booking System</h1>
+    </div>
+    <div class="right-header">
+        <p>Minimum 3 students required</p>
+    </div>
+</header>
+
+<div class="container">
+    <h2>Room Booking</h2>
+
+    <label>Student 1</label>
+    <input type="text" id="student1">
+
+    <label>Student 2</label>
+    <input type="text" id="student2">
+
+    <label>Student 3</label>
+    <input type="text" id="student3">
+
+    <label>Room</label>
+    <select>
+        <option>Room A</option>
+        <option>Room B</option>
+        <option>Room C</option>
+    </select>
+
+    <label>Date</label>
+    <input type="date">
+
+    <label>Time</label>
+    <input type="time">
+
+    <button onclick="validateBooking()">Confirm Booking</button>
+
+    <p id="bookingMsg"></p>
+
+    <a href="dashboard.html">Back to Dashboard</a>
+</div>
+
+<script>
+function validateBooking() {
+    let s1 = student1.value.trim();
+    let s2 = student2.value.trim();
+    let s3 = student3.value.trim();
+    let msg = document.getElementById("bookingMsg");
+
+    if (s1 === "" || s2 === "" || s3 === "") {
+        msg.style.color = "red";
+        msg.innerText = "❌ Invalid booking: 3 students are required.";
+    } else {
+        msg.style.color = "green";
+        msg.innerText = "✅ Booking successful.";
+    }
+}
+</script>
+
+</body>
+</html>
